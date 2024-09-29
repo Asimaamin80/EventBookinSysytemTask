@@ -4,7 +4,7 @@ import {  NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import { Link } from "expo-router";
-import detail from "../Detail";
+import detail from "../detail";
 import Entypo from '@expo/vector-icons/Entypo';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import SearchBar from "@/components/SearchBar";
@@ -13,16 +13,39 @@ import { useState } from "react";
 
 const DATA = [
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
+    id: '1',
+    title: 'London',
+    image:require('./../../assets/images/Mask.png'),
+    Date:'12/03/2024',
+    Location:'United Arab Emirates',
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
+    id: '2',
+    title: 'Paris',
+    image:require('./../../assets/images/Mask1.png'),
+    Date:'12/03/2024',
+    Location:'France',
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item',
+    id: '3',
+    title: 'Dubai',
+    image:require('./../../assets/images/Mask2.png'),
+    Date:'12/03/2024',
+    Location:'United Kingdom',
+  },
+  {
+    id: '4',
+    title: 'Lahore',
+    image:require('./../../assets/images/Mask.png'),
+    Date:'12/03/2024',
+    Location:'United Kingdom',
+  },
+  {
+    id: '5',
+    title: 'Dehli',
+    image:require('./../../assets/images/Mask.png'),
+    Date:'12/03/2024',
+    Location:'Thailand',
   },
 ];
 
@@ -82,11 +105,11 @@ const AllDestinations = ()  => {
          <View style={{ height:70,width:320,margin:7,backgroundColor:"#E6E6E680",borderRadius:20,flexDirection:"row",alignItems:"center"}}>
         <Image
             style={{margin:7}}
-            source={require('./../../assets/images/Mask.png')}
+            source={item.image}
           />
           <View style={{flexDirection:'column',justifyContent:'space-between',height:20}}>
-          <Text style={styles.London}>London</Text>
-          <Text style={{...styles.London,fontSize:12}}>United Kingdom</Text>
+          <Text style={styles.London}>{item.title}</Text>
+          <Text style={{...styles.London,fontSize:12,fontWeight:'400'}}>{item.Location}</Text>
           </View>
           </View>}
         keyExtractor={item => item.id}

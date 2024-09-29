@@ -1,126 +1,28 @@
-// import { Text, View } from "react-native";
-// import { Link } from "expo-router";
-// export default function Index() {
-//   return (
-//     <View
-//       style={{
-//         flex: 1,
-//         justifyContent: "center",
-//         alignItems: "center",
-//       }}
-//     >
-//       <Text>Edit app/index.tsx to edit this screen.</Text>
-//       <Link href={"/Home"}>Home</Link>
-//     </View>
-//   );
-// }
 import React from 'react';
-import {
-  Alert,
-  Animated,
-  StyleSheet,
-  TouchableOpacity,
-  View
-} from 'react-native';
-import { CurvedBottomBarExpo } from 'react-native-curved-bottom-bar';
-import home from './Home/index';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import Ionicons from '@expo/vector-icons/Ionicons'; 
-import { Link } from "expo-router";
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './Home';
+import { StyleSheet } from 'react-native';
+import Detail from './Detail';
+import Booking from './Booking';
+import AllDestinations from './AllDestinations';
 
-const Screen1 = () => {
-  return (<View style={styles.screen1}> 
-   <Link href={"/Detail"}>Detail</Link>
-  </View>);
-};
+const Stack = createStackNavigator();
 
-const Screen2 = () => {
-  return <View style={styles.screen2} />;
-};
-
-export default function Index() {
-  const _renderIcon = (routeName:any, selectedTab:any) => {
-    let icon = '';
-
-    switch (routeName) {
-      case 'title1':
-        icon = 'home';
-        break;
-      case 'title2':
-        icon = 'settings-outline';
-        break;
-    }
-
-    return (<View>
-      <Animated.View style={routeName == selectedTab ? styles.btnCircleUp : styles.unsele }>
-
-      </Animated.View>
-      {/* <Ionicons
-      
-        name={icon}
-        size={25}
-        color={routeName === selectedTab ? '#FFFFFF' : '#5B5B5B'}
-      /> */}
-      {/* <FontAwesome
-      
-      name={icon}
-      size={25}
-      color={routeName === selectedTab ? 'black' : 'gray'}
-    /> */}
-    </View>
-    );
-  };
-  const renderTabBar = ({ routeName, selectedTab, navigate }) => {
-    return (
-      <TouchableOpacity
-        onPress={() => navigate(routeName)}
-        style={styles.tabbarItem}
-      >
-        {_renderIcon(routeName, selectedTab)}
-      </TouchableOpacity>
-    );
-  };
-
+const Index = () => {
   return (
     <NavigationContainer independent={true}>
-      <CurvedBottomBarExpo.Navigator
-        type="UP"
-        style={styles.bottomBar}
-        shadowStyle={styles.shawdow}
-        height={70}
-        circlePosition='CENTER'
-        
-        
-        bgColor="#2AAAE0"
-        initialRouteName="title1"
-        borderTopLeftRight
-        renderCircle={({ selectedTab, navigate }) => (
-          <Animated.View style={styles.btnCircleUp}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => home}
-            >
-              <Ionicons name={'apps-sharp'} color="#5B5B5B" size={25} />
-            </TouchableOpacity>
-          </Animated.View>
-        )}
-        tabBar={renderTabBar}
-      >
-        <CurvedBottomBarExpo.Screen
-          name="title1"
-          position='LEFT'
-          component={() => <Screen1/>}
-        />
-        <CurvedBottomBarExpo.Screen
-          name="title2"
-          component={() => <Screen2 />}
-          position='RIGHT'
-        />
-      </CurvedBottomBarExpo.Navigator>
+      <Stack.Navigator screenOptions={{ headerShown: false}}>
+        <Stack.Screen  name="Home" component={HomeScreen} />
+        <Stack.Screen name="Detail" component={Detail} />
+        <Stack.Screen name="Booking" component={Booking} />
+        <Stack.Screen name="AllDestinations" component={AllDestinations} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
+
+export default Index;
 
 export const styles = StyleSheet.create({
   container: {

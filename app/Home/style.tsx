@@ -35,11 +35,11 @@ export const styles = StyleSheet.create({
             fontWeight:'400',
         },
         firstlist:{ 
-            height:99,width:320,marginTop:8},
+            height:90,width:320,marginTop:8},
         London:{
             color:'#2D2D2D',
             alignSelf:'center',
-            fontSize:14,
+            fontSize:12,
             fontWeight:'bold',   
         },
         remend:{
@@ -47,7 +47,7 @@ export const styles = StyleSheet.create({
             alignSelf:'flex-start',
             fontSize:20,
             fontWeight:'bold',
-            marginLeft:14
+            marginLeft:19
         },
         seclist:{ 
             height:200,width:340,marginTop:8},
@@ -137,7 +137,7 @@ export const styles = StyleSheet.create({
                     alignSelf:'flex-start',
                     fontSize:20,
                     fontWeight:'bold',
-                    marginLeft:14,
+                    marginLeft:20,
                 },
                 setview:{  height:20,
                   width:300,

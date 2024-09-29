@@ -35,11 +35,11 @@ export const styles = StyleSheet.create({
             fontWeight:'400',
         },
         firstlist:{ 
-        marginTop:15},
+        marginTop:10},
         London:{
             color:'#2D2D2D',
-            alignSelf:'center',
-            fontSize:14,
+            alignSelf:'flex-start',
+            fontSize:17,
             fontWeight:'bold',   
         },
         remend:{
